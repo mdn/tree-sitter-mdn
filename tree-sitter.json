@@ -1,0 +1,33 @@
+{
+  "grammars": [
+    {
+      "name": "mdn",
+      "camelcase": "MDN",
+      "scope": "source.mdn",
+      "file-types": [".md"],
+      "injection-regex": "^mdn$"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Parser for MDN content",
+    "authors": [
+      {
+        "name": "Florian Dieminger",
+        "email": "me@fiji-flo.de"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/mdn/tree-sitter-mdn"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
