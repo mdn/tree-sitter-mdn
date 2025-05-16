@@ -10,6 +10,8 @@ permissions:
   attestations: write
 
 jobs:
+  env:
+    TREE_SITTER_ABI_VERSION: 14
   github:
     uses: tree-sitter/workflows/.github/workflows/release.yml@main
     with:
