@@ -11,9 +11,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  env:
-    TREE_SITTER_ABI_VERSION: 14
   fuzz:
+    env:
+      TREE_SITTER_ABI_VERSION: 14
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
