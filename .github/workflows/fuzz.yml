@@ -8,7 +8,7 @@ on:
   pull_request:
     paths:
       - src/scanner.c
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   fuzz:
