@@ -8,6 +8,7 @@ on:
   pull_request:
     paths:
       - grammar.js
+  workflow_dispatch
 
 jobs:
   lint:
