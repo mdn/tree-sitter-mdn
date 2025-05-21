@@ -1,0 +1,62 @@
+===
+invalid macros
+===
+{{ foo("foo", "bar) }} foobar
+---
+
+(doc
+  (ERROR
+    (ident)
+    (string
+      (double_quoted_string))))
+
+===
+invalid ident
+===
+{{ foo#bar }} foobar
+---
+
+(doc
+  (macro
+    (ident)
+    (ERROR
+      (UNEXPECTED '#')
+      (ident)))
+   (text))
+===
+valid ident
+===
+{{foo}}
+---
+
+(doc
+  (macro
+    (ident)))
+
+===
+valid ident and int arg
+===
+{{bar(1)}}
+---
+
+(doc
+  (macro
+    (ident)
+    (args
+      (int))))
+
+===
+valid ident and string arg
+===
+{{bar(1, '2', "foo")}}
+---
+
+(doc
+  (macro
+    (ident)
+    (args
+      (int)
+      (string
+        (single_quoted_string))
+      (string
+        (double_quoted_string)))))

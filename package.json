@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-mdn",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Parser for MDN content",
   "repository": "https://github.com/mdn/tree-sitter-mdn",
   "license": "MIT",

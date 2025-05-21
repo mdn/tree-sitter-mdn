@@ -3,7 +3,6 @@ module.exports = grammar({
 
   word: ($) => $.ident,
 
-  //
   rules: {
     doc: ($) => repeat(choice($.macro_tag, $.text)),
 
@@ -17,7 +16,6 @@ module.exports = grammar({
             /[^{]/, // any non-brace
             /\\\{/, // escaped open brace
             /\{\{ *\}\}/, // {{ }}
-            /\{\{ *[^a-zA-Z_ ][^}]*\}\}/, // {{ <invalid ident> }}
             /\{[^{]/, // single {
           ),
         ),
@@ -100,8 +98,8 @@ module.exports = grammar({
     _dq_char: ($) =>
       token.immediate(
         choice(
-          /[^"\\]/, // any character except " or \
-          seq('\\', choice('"', '\\', '/', 'b', 'f', 'n', 'r', 't')),
+          /[^"\\\n]/,
+          seq('\\', choice('"', '\'', '`', '\\', '/', 'b', 'f', 'n', 'r', 't')),
           seq('\\u', /[0-9A-Fa-f]{4}/),
         ),
       ),
@@ -110,8 +108,8 @@ module.exports = grammar({
     _sq_char: ($) =>
       token.immediate(
         choice(
-          /[^'\\]/,
-          seq('\\', choice('\'', '\\', '/', 'b', 'f', 'n', 'r', 't')),
+          /[^'\\\n]/,
+          seq('\\', choice('"', '\'', '`', '\\', '/', 'b', 'f', 'n', 'r', 't')),
           seq('\\u', /[0-9A-Fa-f]{4}/),
         ),
       ),
@@ -120,8 +118,8 @@ module.exports = grammar({
     _bq_char: ($) =>
       token.immediate(
         choice(
-          /[^`\\]/,
-          seq('\\', choice('`', '\\', '/', 'b', 'f', 'n', 'r', 't')),
+          /[^`\\\n]/,
+          seq('\\', choice('"', '\'', '`', '\\', '/', 'b', 'f', 'n', 'r', 't')),
           seq('\\u', /[0-9A-Fa-f]{4}/),
         ),
       ),

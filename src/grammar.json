@@ -72,10 +72,6 @@
             },
             {
               "type": "PATTERN",
-              "value": "\\{\\{ *[^a-zA-Z_ ][^}]*\\}\\}"
-            },
-            {
-              "type": "PATTERN",
               "value": "\\{[^{]"
             }
           ]
@@ -422,7 +418,7 @@
         "members": [
           {
             "type": "PATTERN",
-            "value": "[^\"\\\\]"
+            "value": "[^\"\\\\\\n]"
           },
           {
             "type": "SEQ",
@@ -437,6 +433,14 @@
                   {
                     "type": "STRING",
                     "value": "\""
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "'"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "`"
                   },
                   {
                     "type": "STRING",
@@ -493,7 +497,7 @@
         "members": [
           {
             "type": "PATTERN",
-            "value": "[^'\\\\]"
+            "value": "[^'\\\\\\n]"
           },
           {
             "type": "SEQ",
@@ -507,7 +511,15 @@
                 "members": [
                   {
                     "type": "STRING",
+                    "value": "\""
+                  },
+                  {
+                    "type": "STRING",
                     "value": "'"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "`"
                   },
                   {
                     "type": "STRING",
@@ -564,7 +576,7 @@
         "members": [
           {
             "type": "PATTERN",
-            "value": "[^`\\\\]"
+            "value": "[^`\\\\\\n]"
           },
           {
             "type": "SEQ",
@@ -576,6 +588,14 @@
               {
                 "type": "CHOICE",
                 "members": [
+                  {
+                    "type": "STRING",
+                    "value": "\""
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "'"
+                  },
                   {
                     "type": "STRING",
                     "value": "`"
