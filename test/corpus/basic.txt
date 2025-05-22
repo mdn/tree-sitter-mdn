@@ -17,12 +17,13 @@ invalid ident
 ---
 
 (doc
-  (macro
+  (macro_tag
     (ident)
     (ERROR
       (UNEXPECTED '#')
       (ident)))
-   (text))
+  (text))
+
 ===
 valid ident
 ===
@@ -30,7 +31,7 @@ valid ident
 ---
 
 (doc
-  (macro
+  (macro_tag
     (ident)))
 
 ===
@@ -40,7 +41,7 @@ valid ident and int arg
 ---
 
 (doc
-  (macro
+  (macro_tag
     (ident)
     (args
       (int))))
@@ -52,7 +53,7 @@ valid ident and string arg
 ---
 
 (doc
-  (macro
+  (macro_tag
     (ident)
     (args
       (int)
