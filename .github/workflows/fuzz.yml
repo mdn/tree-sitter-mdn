@@ -10,6 +10,9 @@ on:
       - src/scanner.c
   workflow_dispatch:
 
+# No GITHUB_TOKEN permissions, as we don't use it.
+permissions: {}
+
 jobs:
   fuzz:
     env:
