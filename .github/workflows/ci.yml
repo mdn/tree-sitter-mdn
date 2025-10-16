@@ -37,7 +37,7 @@ jobs:
       TREE_SITTER_ABI_VERSION: 14
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           persist-credentials: false
       - name: Set up tree-sitter
