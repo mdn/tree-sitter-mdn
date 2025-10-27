@@ -37,7 +37,7 @@ jobs:
       TREE_SITTER_ABI_VERSION: 14
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
       - name: Set up tree-sitter
@@ -47,7 +47,7 @@ jobs:
           git clone https://github.com/mdn/content examples/content --single-branch --depth=1 --filter=blob:none
           git clone https://github.com/mdn/translated-content examples/translated-content --single-branch --depth=1 --filter=blob:none
       - name: Run tests
-        uses: tree-sitter/parser-test-action@v2
+        uses: tree-sitter/parser-test-action@aba4a3de737f86f8ce83be38166a1ab521d4c960 # v2
         with:
           generate: false
           test-rust: true
@@ -56,6 +56,6 @@ jobs:
           #test-go: true
           #test-swift: true
       - name: Parse examples
-        uses: tree-sitter/parse-action@v4
+        uses: tree-sitter/parse-action@f44ffa94f802024f27e821a72e6f2f3efc5dd521 # v4
         with:
           files: examples/mdn/*/files/**/*.md
