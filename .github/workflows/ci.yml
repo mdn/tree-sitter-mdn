@@ -41,7 +41,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Set up tree-sitter
-        uses: tree-sitter/setup-action/cli@v2
+        uses: tree-sitter/setup-action/cli@c4c258862a6a7e43a7aef152256bbf659972c408 # v2
       - name: Set up examples
         run: |-
           git clone https://github.com/mdn/content examples/content --single-branch --depth=1 --filter=blob:none
