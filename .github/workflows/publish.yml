@@ -1,8 +1,9 @@
 name: Publish packages
 
 on:
-  push:
-    tags: ["*"]
+  release:
+    types:
+      - published
   workflow_dispatch:
     inputs:
       ref:
@@ -33,7 +34,7 @@ jobs:
       - name: Set up Emscripten
         uses: mymindstorm/setup-emsdk@6ab9eb1bda2574c4ddb79809fc9247783eaf9021 # v14
         with:
-          version: '3.1.64'
+          version: "3.1.64"
 
       - name: Set up tree-sitter CLI
         uses: tree-sitter/setup-action/cli@c4c258862a6a7e43a7aef152256bbf659972c408 # v2
