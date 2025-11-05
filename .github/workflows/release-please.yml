@@ -17,4 +17,5 @@ jobs:
         with:
           repo-url: mdn/tree-sitter-mdn
           manifest-file: .release-please-manifest.json
+          skip-github-release: true
           token: ${{ secrets.RELEASE_PLEASE_GITHUB_TOKEN }}
