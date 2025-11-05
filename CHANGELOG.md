@@ -1,0 +1,16 @@
+# Changelog
+
+## [0.1.2](https://github.com/mdn/tree-sitter-mdn/compare/v0.1.1...v0.1.2) (2025-11-05)
+
+
+### Build System
+
+* **deps-dev:** bump tar-fs from 2.1.2 to 2.1.3 ([292a49d](https://github.com/mdn/tree-sitter-mdn/commit/292a49dd8c3707b71a7333bc53918adbcc00b18b))
+* **deps-dev:** bump tar-fs from 2.1.2 to 2.1.3 ([1064ba6](https://github.com/mdn/tree-sitter-mdn/commit/1064ba61f392ef38e8c4ce03a4288c8a93ced837))
+* **deps:** bump @eslint/plugin-kit from 0.3.1 to 0.3.5 ([#14](https://github.com/mdn/tree-sitter-mdn/issues/14)) ([c8919fe](https://github.com/mdn/tree-sitter-mdn/commit/c8919fe88b4bd97ba0f5bf93cd37a404120df8e8))
+* **deps:** bump brace-expansion from 1.1.11 to 1.1.12 ([#15](https://github.com/mdn/tree-sitter-mdn/issues/15)) ([ac4515a](https://github.com/mdn/tree-sitter-mdn/commit/ac4515a295a18db4858badaa9d98a4c852486ac5))
+
+
+### Miscellaneous
+
+* update tar-fs ([5389c34](https://github.com/mdn/tree-sitter-mdn/commit/5389c34e880d7048227b4d1e3c6a74a93e99029f))
