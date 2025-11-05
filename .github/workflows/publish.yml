@@ -16,6 +16,7 @@ permissions:
   attestations: write
 
 env:
+  REF: ${{ inputs.ref || github.ref_name }}
   REPO_NAME: tree-sitter-mdn
   TREE_SITTER_ABI_VERSION: 14
 
@@ -29,7 +30,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-          ref: ${{ inputs.ref || github.sha }}
+          ref: ${{ env.REF }}
 
       - name: Set up Emscripten
         uses: mymindstorm/setup-emsdk@6ab9eb1bda2574c4ddb79809fc9247783eaf9021 # v14
@@ -92,7 +93,7 @@ jobs:
         run: |-
           RELEASE_NOTE="**NOTE:** Download \`$REPO_NAME.tar.gz\` for the *complete* source code."
           RELEASE_NOTE="${RELEASE_BODY}${RELEASE_BODY:+$'\n\n---\n\n'}${RELEASE_NOTE}"
-          gh release create "$GITHUB_REF_NAME" *.wasm "$REPO_NAME.tar.gz" -n "$RELEASE_NOTE"
+          gh release create "$REF" *.wasm "$REPO_NAME.tar.gz" -n "$RELEASE_NOTE"
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_BODY: ""
@@ -108,7 +109,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
-          ref: ${{ inputs.ref || github.sha }}
+          ref: ${{ env.REF }}
 
       - name: Set up Rust
         uses: actions-rust-lang/setup-rust-toolchain@1780873c7b576612439a134613cc4cc74ce5538c # v1.15.2
