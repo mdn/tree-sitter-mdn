@@ -5,12 +5,12 @@ updates:
     schedule:
       interval: weekly
     groups:
-      prod:
+      cargo-prod:
         dependency-type: production
         update-types:
           - minor
           - patch
-      dev:
+      cargo-dev:
         dependency-type: development
         update-types:
           - minor
@@ -32,12 +32,12 @@ updates:
     schedule:
       interval: weekly
     groups:
-      prod:
+      npm-prod:
         dependency-type: production
         update-types:
           - minor
           - patch
-      dev:
+      npm-dev:
         dependency-type: development
         update-types:
           - minor
