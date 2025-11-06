@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.3](https://github.com/mdn/tree-sitter-mdn/compare/v0.1.2...v0.1.3) (2025-11-06)
+
+
+### Miscellaneous
+
+* **deps-dev:** bump the npm-dev group across 1 directory with 3 updates ([#30](https://github.com/mdn/tree-sitter-mdn/issues/30)) ([23a363f](https://github.com/mdn/tree-sitter-mdn/commit/23a363f7ccac1f398e972586aa0a0c9aa57a515c))
+* **deps:** bump the cargo-prod group with 2 updates ([#26](https://github.com/mdn/tree-sitter-mdn/issues/26)) ([9567402](https://github.com/mdn/tree-sitter-mdn/commit/956740292dd00484c3109b0df0916ed6905f74e5))
+* **npm:** move all dependencies to devDependencies ([#25](https://github.com/mdn/tree-sitter-mdn/issues/25)) ([5b174f6](https://github.com/mdn/tree-sitter-mdn/commit/5b174f67703ff65a6bde4da4b24a0602c2bf3e68))
+
 ## [0.1.2](https://github.com/mdn/tree-sitter-mdn/compare/v0.1.1...v0.1.2) (2025-11-05)
 
 
