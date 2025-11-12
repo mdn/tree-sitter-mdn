@@ -89,14 +89,10 @@ jobs:
             *.wasm
             ${{ env.REPO_NAME }}.tar.gz
 
-      - name: Create GitHub release
-        run: |-
-          RELEASE_NOTE="**NOTE:** Download \`$REPO_NAME.tar.gz\` for the *complete* source code."
-          RELEASE_NOTE="${RELEASE_BODY}${RELEASE_BODY:+$'\n\n---\n\n'}${RELEASE_NOTE}"
-          gh release create "$REF" *.wasm "$REPO_NAME.tar.gz" -n "$RELEASE_NOTE"
+      - name: Update GitHub release
+        run: gh release upload "$REF" *.wasm "$REPO_NAME.tar.gz" --clobber
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_BODY: ""
 
   crates:
     # See: https://github.com/tree-sitter/workflows/blob/5369718a08f77b4137e79f309a246e328e9459ad/.github/workflows/package-crates.yml
