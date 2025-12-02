@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.6](https://github.com/mdn/tree-sitter-mdn/compare/v0.1.5...v0.1.6) (2025-12-02)
+
+
+### Miscellaneous
+
+* **deps:** bump cc from 1.2.45 to 1.2.47 in the cargo-prod group ([#39](https://github.com/mdn/tree-sitter-mdn/issues/39)) ([7240fd9](https://github.com/mdn/tree-sitter-mdn/commit/7240fd9b36aa86194af558fe9d49ab247e6cac23))
+* **deps:** bump cc from 1.2.47 to 1.2.48 in the cargo-prod group ([#41](https://github.com/mdn/tree-sitter-mdn/issues/41)) ([2cb9bc9](https://github.com/mdn/tree-sitter-mdn/commit/2cb9bc9884f6d9d746614dccc94480cd7b16e1e0))
+
 ## [0.1.5](https://github.com/mdn/tree-sitter-mdn/compare/v0.1.4...v0.1.5) (2025-11-19)
 
 
