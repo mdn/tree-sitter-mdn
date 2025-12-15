@@ -29,13 +29,13 @@
   "dependencies": {
   },
   "devDependencies": {
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "eslint-config-treesitter": "^1.0.2",
     "node-addon-api": "^8.5.0",
     "node-gyp-build": "^4.8.2",
     "prebuildify": "^6.0.1",
     "tar-fs": ">=2.1.4",
-    "tree-sitter-cli": "^0.25.10"
+    "tree-sitter-cli": "^0.26.3"
   },
   "peerDependencies": {
     "tree-sitter": "^0.21.1"
