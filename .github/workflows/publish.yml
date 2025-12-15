@@ -38,7 +38,7 @@ jobs:
           version: "3.1.64"
 
       - name: Set up tree-sitter CLI
-        uses: tree-sitter/setup-action/cli@c4c258862a6a7e43a7aef152256bbf659972c408 # v2
+        uses: tree-sitter/setup-action/cli@eeb902ac2f1be576edc296309872cf476a209b7f # v2
 
       - name: Install dependencies
         run: |-
@@ -113,7 +113,7 @@ jobs:
           toolchain: stable
 
       - name: Set up tree-sitter CLI
-        uses: tree-sitter/setup-action/cli@c4c258862a6a7e43a7aef152256bbf659972c408 # v2
+        uses: tree-sitter/setup-action/cli@eeb902ac2f1be576edc296309872cf476a209b7f # v2
 
       - name: Install dependencies
         run: |-
