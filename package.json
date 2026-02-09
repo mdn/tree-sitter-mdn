@@ -29,7 +29,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "eslint-config-treesitter": "^1.0.2",
     "node-addon-api": "^8.5.0",
     "node-gyp-build": "^4.8.2",
