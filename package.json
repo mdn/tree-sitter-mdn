@@ -5,8 +5,8 @@
   "repository": "https://github.com/mdn/tree-sitter-mdn",
   "license": "MIT",
   "author": {
-    "name": "Florian Dieminger",
-    "email": "me@fiji-flo.de"
+    "name": "MDN Engineering Team",
+    "email": "mdn-dev@mozilla.com"
   },
   "main": "bindings/node",
   "types": "bindings/node",
