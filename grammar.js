@@ -9,7 +9,7 @@ module.exports = grammar({
     macro_tag: ($) =>
       seq(token.immediate('{{'), $.ident, optional($.args), '}}'),
 
-    text: ($) =>
+    text: (_$) =>
       token(
         repeat1(
           choice(
@@ -49,22 +49,22 @@ module.exports = grammar({
         $.boolean,
       ),
 
-    boolean: ($) => choice('true', 'false'),
-    none: ($) => prec(1, ','),
+    boolean: (_$) => choice('true', 'false'),
+    none: (_$) => prec(1, ','),
 
     // ---------------------------------------------------------------------------
     // Identifiers
     // ---------------------------------------------------------------------------
 
-    ident: ($) => /[a-zA-Z_][a-zA-Z0-9_\-]*/,
+    ident: (_$) => /[a-zA-Z_][a-zA-Z0-9_\-]*/,
 
     // ---------------------------------------------------------------------------
     // Numbers
     // ---------------------------------------------------------------------------
 
-    int: ($) => token(choice(/-?0/, /-?[1-9]\d*/)),
+    int: (_$) => token(choice(/-?0/, /-?[1-9]\d*/)),
 
-    float: ($) => token(choice(/-?0\.\d+/, /-?[1-9]\d*\.\d+/)),
+    float: (_$) => token(choice(/-?0\.\d+/, /-?[1-9]\d*\.\d+/)),
 
     // ---------------------------------------------------------------------------
     // Strings
@@ -95,7 +95,7 @@ module.exports = grammar({
     //
     // In Tree-sitter, it’s typical to make these immediate tokens
     // so that once we've started a string, we parse char-by-char.
-    _dq_char: ($) =>
+    _dq_char: (_$) =>
       token.immediate(
         choice(
           /[^"\\\n]/,
@@ -105,7 +105,7 @@ module.exports = grammar({
       ),
 
     // sq_char analogous
-    _sq_char: ($) =>
+    _sq_char: (_$) =>
       token.immediate(
         choice(
           /[^'\\\n]/,
@@ -115,7 +115,7 @@ module.exports = grammar({
       ),
 
     // bq_char analogous
-    _bq_char: ($) =>
+    _bq_char: (_$) =>
       token.immediate(
         choice(
           /[^`\\\n]/,
