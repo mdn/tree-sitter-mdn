@@ -3,6 +3,7 @@
   "last-release-sha": "ddee5780a177c89e270a16332d0e1b54cc2312e7",
   "bump-minor-pre-major": true,
   "bump-patch-for-minor-pre-major": true,
+  "draft-pull-request": true,
   "include-component-in-tag": false,
   "include-v-in-tag": true,
   "changelog-sections": [

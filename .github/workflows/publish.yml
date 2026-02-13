@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
           ref: ${{ env.REF }}
@@ -38,7 +38,7 @@ jobs:
           version: "3.1.64"
 
       - name: Set up tree-sitter CLI
-        uses: tree-sitter/setup-action/cli@c4c258862a6a7e43a7aef152256bbf659972c408 # v2
+        uses: tree-sitter/setup-action/cli@eeb902ac2f1be576edc296309872cf476a209b7f # v2
 
       - name: Install dependencies
         run: |-
@@ -83,20 +83,16 @@ jobs:
           tar cvzf "$REPO_NAME.tar.gz" -T <(sort -u "$RUNNER_TEMP/files")
 
       - name: Generate attestations
-        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3.0.0
+        uses: actions/attest-build-provenance@96278af6caaf10aea03fd8d33a09a777ca52d62f # v3.2.0
         with:
           subject-path: |
             *.wasm
             ${{ env.REPO_NAME }}.tar.gz
 
-      - name: Create GitHub release
-        run: |-
-          RELEASE_NOTE="**NOTE:** Download \`$REPO_NAME.tar.gz\` for the *complete* source code."
-          RELEASE_NOTE="${RELEASE_BODY}${RELEASE_BODY:+$'\n\n---\n\n'}${RELEASE_NOTE}"
-          gh release create "$REF" *.wasm "$REPO_NAME.tar.gz" -n "$RELEASE_NOTE"
+      - name: Update GitHub release
+        run: gh release upload "$REF" *.wasm "$REPO_NAME.tar.gz" --clobber
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_BODY: ""
 
   crates:
     # See: https://github.com/tree-sitter/workflows/blob/5369718a08f77b4137e79f309a246e328e9459ad/.github/workflows/package-crates.yml
@@ -106,7 +102,7 @@ jobs:
       id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
           ref: ${{ env.REF }}
@@ -117,7 +113,7 @@ jobs:
           toolchain: stable
 
       - name: Set up tree-sitter CLI
-        uses: tree-sitter/setup-action/cli@c4c258862a6a7e43a7aef152256bbf659972c408 # v2
+        uses: tree-sitter/setup-action/cli@eeb902ac2f1be576edc296309872cf476a209b7f # v2
 
       - name: Install dependencies
         run: |-
@@ -143,7 +139,7 @@ jobs:
           done < <(find . -name grammar.js -not -path './node_modules/*' -not -path './.build/*')
 
       - name: Auth (crates.io)
-        uses: rust-lang/crates-io-auth-action@041cce5b4b821e6b0ebc9c9c38b58cac4e34dcc2 # v1.0.2
+        uses: rust-lang/crates-io-auth-action@b7e9a28eded4986ec6b1fa40eeee8f8f165559ec # v1.0.3
         id: auth
 
       - name: Publish (crates.io)

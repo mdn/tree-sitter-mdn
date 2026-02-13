@@ -1,7 +1,7 @@
 [package]
 name = "tree-sitter-mdn"
 description = "Parser for MDN content"
-version = "0.1.3"
+version = "0.1.5"
 authors = ["MDN Engineering Team <mdn-dev@mozilla.com>"]
 license = "MIT"
 readme = "README.md"
@@ -27,7 +27,7 @@ path = "bindings/rust/lib.rs"
 tree-sitter-language = "0.1"
 
 [build-dependencies]
-cc = "1.2.44"
+cc = "1.2.55"
 
 [dev-dependencies]
-tree-sitter = "0.25"
+tree-sitter = "0.26"
