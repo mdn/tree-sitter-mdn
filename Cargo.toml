@@ -2,7 +2,7 @@
 name = "tree-sitter-mdn"
 description = "Parser for MDN content"
 version = "0.1.5"
-authors = ["Florian Dieminger <me@fiji-flo.de>"]
+authors = ["MDN Engineering Team <mdn-dev@mozilla.com>"]
 license = "MIT"
 readme = "README.md"
 keywords = ["incremental", "parsing", "tree-sitter", "mdn"]
