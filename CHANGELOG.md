@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.5](https://github.com/mdn/tree-sitter-mdn/compare/v0.1.4...v0.1.5) (2025-11-19)
+
+
+### Miscellaneous
+
+* **deps-dev:** bump js-yaml from 4.1.0 to 4.1.1 ([#35](https://github.com/mdn/tree-sitter-mdn/issues/35)) ([87617fc](https://github.com/mdn/tree-sitter-mdn/commit/87617fc8bc3ac0ee510612cec351a00bbf6fa0c8))
+
+## [0.1.4](https://github.com/mdn/tree-sitter-mdn/compare/v0.1.3...v0.1.4) (2025-11-17)
+
+
+### Miscellaneous
+
+* **deps:** bump cc from 1.2.44 to 1.2.45 in the cargo-prod group ([#31](https://github.com/mdn/tree-sitter-mdn/issues/31)) ([0938541](https://github.com/mdn/tree-sitter-mdn/commit/09385415f27ae1f34b965e1a5081db68dfdd729b))
+
 ## [0.1.3](https://github.com/mdn/tree-sitter-mdn/compare/v0.1.2...v0.1.3) (2025-11-06)
 
 

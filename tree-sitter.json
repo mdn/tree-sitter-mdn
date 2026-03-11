@@ -14,8 +14,8 @@
     "description": "Parser for MDN content",
     "authors": [
       {
-        "name": "Florian Dieminger",
-        "email": "me@fiji-flo.de"
+        "name": "MDN Engineering Team",
+        "email": "mdn-dev@mozilla.com"
       }
     ],
     "links": {
