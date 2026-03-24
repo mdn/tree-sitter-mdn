@@ -9,3 +9,5 @@
 
 /Cargo.lock @mdn/engineering @mdn-bot
 /Cargo.toml @mdn/engineering @mdn-bot
+/package.json      @mdn/engineering @mdn-bot
+/package-lock.json @mdn/engineering @mdn-bot
