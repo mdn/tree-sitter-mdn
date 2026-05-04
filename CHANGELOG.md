@@ -1,5 +1,45 @@
 # Changelog
 
+## [0.1.6](https://github.com/mdn/tree-sitter-mdn/compare/v0.1.5...v0.1.6) (2026-05-04)
+
+
+### Miscellaneous
+
+* **deps-dev:** bump eslint from 10.0.3 to 10.1.0 in the npm-dev group ([#83](https://github.com/mdn/tree-sitter-mdn/issues/83)) ([1c8e830](https://github.com/mdn/tree-sitter-mdn/commit/1c8e8304a485424e4e0bb63381e545d184f80605))
+* **deps-dev:** bump eslint from 10.2.0 to 10.2.1 in the npm-dev group ([#97](https://github.com/mdn/tree-sitter-mdn/issues/97)) ([1a734ea](https://github.com/mdn/tree-sitter-mdn/commit/1a734eafd6aeb3a1b49f8c7ea7da287037eb621e))
+* **deps-dev:** bump eslint from 9.39.2 to 10.0.3 ([#74](https://github.com/mdn/tree-sitter-mdn/issues/74)) ([babb8a5](https://github.com/mdn/tree-sitter-mdn/commit/babb8a56c0b78d01c5578da18146a15d89e5072b))
+* **deps-dev:** bump flatted from 3.3.3 to 3.4.2 ([#82](https://github.com/mdn/tree-sitter-mdn/issues/82)) ([e14bd44](https://github.com/mdn/tree-sitter-mdn/commit/e14bd4414785e6533d4d1c9d9a49c70ba65e35f1))
+* **deps-dev:** bump globals from 17.4.0 to 17.5.0 in the npm-dev group ([#94](https://github.com/mdn/tree-sitter-mdn/issues/94)) ([95a4926](https://github.com/mdn/tree-sitter-mdn/commit/95a4926d20c3010703ace571b63c5e15d067bafd))
+* **deps-dev:** bump minimatch from 3.1.2 to 3.1.5 ([#66](https://github.com/mdn/tree-sitter-mdn/issues/66)) ([92a6b0f](https://github.com/mdn/tree-sitter-mdn/commit/92a6b0f05bbc648bbc7fdd984385ea5c0cb23828))
+* **deps-dev:** bump node-addon-api from 8.6.0 to 8.7.0 in the npm-dev group ([#87](https://github.com/mdn/tree-sitter-mdn/issues/87)) ([e47b67b](https://github.com/mdn/tree-sitter-mdn/commit/e47b67b437f8678543e8aeeca123ef459f7a2539))
+* **deps-dev:** bump node-addon-api in the npm-dev group ([e47b67b](https://github.com/mdn/tree-sitter-mdn/commit/e47b67b437f8678543e8aeeca123ef459f7a2539))
+* **deps-dev:** bump tar-fs from 3.1.1 to 3.1.2 in the npm-dev group ([#73](https://github.com/mdn/tree-sitter-mdn/issues/73)) ([8f50254](https://github.com/mdn/tree-sitter-mdn/commit/8f502549575a3edc9c7928d63a6f356770f34859))
+* **deps-dev:** bump the npm-dev group with 2 updates ([#100](https://github.com/mdn/tree-sitter-mdn/issues/100)) ([a047656](https://github.com/mdn/tree-sitter-mdn/commit/a047656e6dc15cfb3adf5c4fe212604f982bf67e))
+* **deps-dev:** bump the npm-dev group with 2 updates ([#48](https://github.com/mdn/tree-sitter-mdn/issues/48)) ([a76d98f](https://github.com/mdn/tree-sitter-mdn/commit/a76d98fd493fe9f67046c227b6dbf5ba074b8775))
+* **deps-dev:** bump the npm-dev group with 2 updates ([#70](https://github.com/mdn/tree-sitter-mdn/issues/70)) ([23e0409](https://github.com/mdn/tree-sitter-mdn/commit/23e040948bdef189a0743e098a5175e1eb5de02e))
+* **deps-dev:** bump the npm-dev group with 2 updates ([#90](https://github.com/mdn/tree-sitter-mdn/issues/90)) ([1368f74](https://github.com/mdn/tree-sitter-mdn/commit/1368f74a93ec2255f605578d318a299e204c6bd4))
+* **deps-dev:** bump tree-sitter-cli from 0.26.3 to 0.26.5 in the npm-dev group ([#59](https://github.com/mdn/tree-sitter-mdn/issues/59)) ([4a67623](https://github.com/mdn/tree-sitter-mdn/commit/4a6762364931a08e51f5ee140764c03962c5f31a))
+* **deps-dev:** bump tree-sitter-cli from 0.26.6 to 0.26.7 in the npm-dev group ([#79](https://github.com/mdn/tree-sitter-mdn/issues/79)) ([7d8a469](https://github.com/mdn/tree-sitter-mdn/commit/7d8a4691eae3468c58f6c76a73f4f6b7784d5450))
+* **deps-dev:** bump tree-sitter-cli in the npm-dev group ([7d8a469](https://github.com/mdn/tree-sitter-mdn/commit/7d8a4691eae3468c58f6c76a73f4f6b7784d5450))
+* **deps:** bump cc from 1.2.45 to 1.2.47 in the cargo-prod group ([#39](https://github.com/mdn/tree-sitter-mdn/issues/39)) ([7240fd9](https://github.com/mdn/tree-sitter-mdn/commit/7240fd9b36aa86194af558fe9d49ab247e6cac23))
+* **deps:** bump cc from 1.2.47 to 1.2.48 in the cargo-prod group ([#41](https://github.com/mdn/tree-sitter-mdn/issues/41)) ([2cb9bc9](https://github.com/mdn/tree-sitter-mdn/commit/2cb9bc9884f6d9d746614dccc94480cd7b16e1e0))
+* **deps:** bump cc from 1.2.48 to 1.2.49 in the cargo-prod group ([#44](https://github.com/mdn/tree-sitter-mdn/issues/44)) ([d6d71a4](https://github.com/mdn/tree-sitter-mdn/commit/d6d71a4f94b6ade262d05ec26da470aad68aeb35))
+* **deps:** bump cc from 1.2.52 to 1.2.53 in the cargo-prod group ([#54](https://github.com/mdn/tree-sitter-mdn/issues/54)) ([abd503e](https://github.com/mdn/tree-sitter-mdn/commit/abd503e4c5ac8cb8b5de1fb01f92d5828da90abe))
+* **deps:** bump cc from 1.2.53 to 1.2.54 in the cargo-prod group ([#56](https://github.com/mdn/tree-sitter-mdn/issues/56)) ([489c941](https://github.com/mdn/tree-sitter-mdn/commit/489c9413cd444b86c177271b623c8dbcd663ceb9))
+* **deps:** bump cc from 1.2.55 to 1.2.56 in the cargo-prod group ([#63](https://github.com/mdn/tree-sitter-mdn/issues/63)) ([62fce3b](https://github.com/mdn/tree-sitter-mdn/commit/62fce3ba1bf446d434a91fff5fec165c19931f9a))
+* **deps:** bump cc from 1.2.57 to 1.2.58 in the cargo-prod group ([#86](https://github.com/mdn/tree-sitter-mdn/issues/86)) ([c4e94eb](https://github.com/mdn/tree-sitter-mdn/commit/c4e94eb30873e066af727e98fb6a9c246274dab6))
+* **deps:** bump cc from 1.2.59 to 1.2.60 in the cargo-prod group ([#93](https://github.com/mdn/tree-sitter-mdn/issues/93)) ([0dd9d2f](https://github.com/mdn/tree-sitter-mdn/commit/0dd9d2feb33cf275797010582154dd8accfcf62d))
+* **deps:** bump cc from 1.2.60 to 1.2.61 in the cargo-prod group ([#99](https://github.com/mdn/tree-sitter-mdn/issues/99)) ([5b26bf4](https://github.com/mdn/tree-sitter-mdn/commit/5b26bf4998c275b26353b56fbb9938c8275f852e))
+* **deps:** bump the cargo-prod group across 1 directory with 2 updates ([#50](https://github.com/mdn/tree-sitter-mdn/issues/50)) ([3d42be6](https://github.com/mdn/tree-sitter-mdn/commit/3d42be69de0f16ea6218b1c73ff9e1ed2649330e))
+* **deps:** bump the cargo-prod group with 2 updates ([#78](https://github.com/mdn/tree-sitter-mdn/issues/78)) ([14da0e7](https://github.com/mdn/tree-sitter-mdn/commit/14da0e79e34f75fc1dcdacd37645cf18b83c0890))
+* **deps:** bump the cargo-prod group with 2 updates ([#89](https://github.com/mdn/tree-sitter-mdn/issues/89)) ([59a33a4](https://github.com/mdn/tree-sitter-mdn/commit/59a33a47c28aaf4470f297990d6cb247f8675e8c))
+* **deps:** bump the cargo-prod group with 3 updates ([#58](https://github.com/mdn/tree-sitter-mdn/issues/58)) ([bf3b3ae](https://github.com/mdn/tree-sitter-mdn/commit/bf3b3aea3d35266f9aa6f05618e5a90f81f46f0c))
+* **deps:** bump tree-sitter from 0.25.10 to 0.26.3 ([#47](https://github.com/mdn/tree-sitter-mdn/issues/47)) ([0f08751](https://github.com/mdn/tree-sitter-mdn/commit/0f0875182a239401dfeeaf0100f78a8b6481a0e5))
+* **deps:** bump tree-sitter from 0.26.5 to 0.26.6 in the cargo-prod group ([#69](https://github.com/mdn/tree-sitter-mdn/issues/69)) ([37f0b83](https://github.com/mdn/tree-sitter-mdn/commit/37f0b835621c145aeeb089ebdc19fbd3c8add604))
+* **eslint:** run on all files + fix issues ([#61](https://github.com/mdn/tree-sitter-mdn/issues/61)) ([6c40ed4](https://github.com/mdn/tree-sitter-mdn/commit/6c40ed4ea2c69da33d053ed2c1b54548d14aa227))
+* **github:** add PR template ([#52](https://github.com/mdn/tree-sitter-mdn/issues/52)) ([47f4c37](https://github.com/mdn/tree-sitter-mdn/commit/47f4c37010b07714503ff572c06cbef8607f185c))
+* update project author ([#62](https://github.com/mdn/tree-sitter-mdn/issues/62)) ([7ab8b8c](https://github.com/mdn/tree-sitter-mdn/commit/7ab8b8cd4d5f4c31928e607c1da7dab5af431ea9))
+
 ## [0.1.5](https://github.com/mdn/tree-sitter-mdn/compare/v0.1.4...v0.1.5) (2025-11-19)
 
 
