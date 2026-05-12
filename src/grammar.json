@@ -30,6 +30,18 @@
           }
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "expect_missing"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "SYMBOL",
           "name": "ident"
         },
@@ -50,6 +62,10 @@
           "value": "}}"
         }
       ]
+    },
+    "expect_missing": {
+      "type": "STRING",
+      "value": "_"
     },
     "text": {
       "type": "TOKEN",
@@ -300,7 +316,7 @@
     },
     "ident": {
       "type": "PATTERN",
-      "value": "[a-zA-Z_][a-zA-Z0-9_\\-]*"
+      "value": "[a-zA-Z][a-zA-Z0-9_\\-]*"
     },
     "int": {
       "type": "TOKEN",

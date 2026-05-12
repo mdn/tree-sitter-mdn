@@ -78,6 +78,10 @@
           "named": true
         },
         {
+          "type": "expect_missing",
+          "named": true
+        },
+        {
           "type": "ident",
           "named": true
         }
@@ -140,6 +144,10 @@
   {
     "type": "`",
     "named": false
+  },
+  {
+    "type": "expect_missing",
+    "named": true
   },
   {
     "type": "false",

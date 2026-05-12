@@ -61,3 +61,28 @@ valid ident and string arg
         (single_quoted_string))
       (string
         (double_quoted_string)))))
+
+===
+expect_missing flag, no args
+===
+{{_foo}}
+---
+
+(doc
+  (macro_tag
+    (expect_missing)
+    (ident)))
+
+===
+expect_missing flag with args
+===
+{{_cssxref("foo")}}
+---
+
+(doc
+  (macro_tag
+    (expect_missing)
+    (ident)
+    (args
+      (string
+        (double_quoted_string)))))

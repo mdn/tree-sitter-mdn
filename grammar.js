@@ -7,7 +7,15 @@ module.exports = grammar({
     doc: ($) => repeat(choice($.macro_tag, $.text)),
 
     macro_tag: ($) =>
-      seq(token.immediate('{{'), $.ident, optional($.args), '}}'),
+      seq(
+        token.immediate('{{'),
+        optional($.expect_missing),
+        $.ident,
+        optional($.args),
+        '}}',
+      ),
+
+    expect_missing: (_$) => '_',
 
     text: (_$) =>
       token(
@@ -56,7 +64,7 @@ module.exports = grammar({
     // Identifiers
     // ---------------------------------------------------------------------------
 
-    ident: (_$) => /[a-zA-Z_][a-zA-Z0-9_\-]*/,
+    ident: (_$) => /[a-zA-Z][a-zA-Z0-9_\-]*/,
 
     // ---------------------------------------------------------------------------
     // Numbers
