@@ -27,14 +27,14 @@
     "*.wasm"
   ],
   "devDependencies": {
-    "eslint": "^10.5.0",
+    "eslint": "^10.6.0",
     "eslint-config-treesitter": "^1.0.2",
-    "globals": "^17.6.0",
-    "node-addon-api": "^8.8.0",
+    "globals": "^17.7.0",
+    "node-addon-api": "^8.9.0",
     "node-gyp-build": "^4.8.2",
     "prebuildify": "^6.0.1",
-    "tar-fs": ">=3.1.2",
-    "tree-sitter-cli": "^0.26.9"
+    "tar-fs": ">=3.1.3",
+    "tree-sitter-cli": "^0.26.10"
   },
   "peerDependencies": {
     "tree-sitter": "^0.21.1"
