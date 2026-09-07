@@ -44,4 +44,5 @@ updates:
           - patch
     commit-message:
       prefix: chore
+      prefix-development: build
       include: scope
