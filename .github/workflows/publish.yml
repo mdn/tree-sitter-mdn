@@ -37,8 +37,16 @@ jobs:
         with:
           version: "3.1.64"
 
+      - name: Read pinned tree-sitter CLI version
+        id: cli
+        run: |
+          version=$(jq -er '.packages["node_modules/tree-sitter-cli"].version' package-lock.json)
+          printf 'version=%s\n' "$version" >> "$GITHUB_OUTPUT"
+
       - name: Set up tree-sitter CLI
         uses: tree-sitter/setup-action/cli@49f8c1f20b60102eae8c033bb7c7f6cd056f6086 # v2
+        with:
+          tree-sitter-ref: v${{ steps.cli.outputs.version }}
 
       - name: Install dependencies
         run: |-
@@ -63,6 +71,10 @@ jobs:
             tree-sitter generate
             popd > /dev/null
           done < <(find . -name grammar.js -not -path './node_modules/*')
+
+      # Never ship a parser that differs from the committed one.
+      - name: Verify generated parser matches the committed one
+        run: git diff --exit-code -- src
 
       - name: Build Wasm binaries
         shell: bash
@@ -112,8 +124,16 @@ jobs:
         with:
           toolchain: stable
 
+      - name: Read pinned tree-sitter CLI version
+        id: cli
+        run: |
+          version=$(jq -er '.packages["node_modules/tree-sitter-cli"].version' package-lock.json)
+          printf 'version=%s\n' "$version" >> "$GITHUB_OUTPUT"
+
       - name: Set up tree-sitter CLI
         uses: tree-sitter/setup-action/cli@49f8c1f20b60102eae8c033bb7c7f6cd056f6086 # v2
+        with:
+          tree-sitter-ref: v${{ steps.cli.outputs.version }}
 
       - name: Install dependencies
         run: |-
@@ -137,6 +157,10 @@ jobs:
             tree-sitter generate
             cd - > /dev/null
           done < <(find . -name grammar.js -not -path './node_modules/*' -not -path './.build/*')
+
+      # Never publish a parser that differs from the committed one.
+      - name: Verify generated parser matches the committed one
+        run: git diff --exit-code -- src
 
       - name: Auth (crates.io)
         uses: rust-lang/crates-io-auth-action@c6f97d42243bad5fab37ca0427f495c86d5b1a18 # v1.0.5

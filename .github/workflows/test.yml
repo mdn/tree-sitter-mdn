@@ -29,8 +29,25 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Read pinned tree-sitter CLI version
+        id: cli
+        shell: bash
+        run: |
+          version=$(jq -er '.packages["node_modules/tree-sitter-cli"].version' package-lock.json)
+          printf 'version=%s\n' "$version" >> "$GITHUB_OUTPUT"
+
       - name: Set up tree-sitter
         uses: tree-sitter/setup-action/cli@49f8c1f20b60102eae8c033bb7c7f6cd056f6086 # v2
+        with:
+          tree-sitter-ref: v${{ steps.cli.outputs.version }}
+
+      # A `tree-sitter-cli` bump must come with the resulting `src/` diff.
+      - name: Verify committed parser matches the pinned CLI
+        shell: bash
+        run: |
+          tree-sitter generate
+          git add --intent-to-add src
+          git diff --exit-code -- src
 
       - name: Set up examples
         run: |-
