@@ -1,0 +1,21 @@
+===
+non-ASCII case folds in text
+===
+Kſ K
+---
+
+(doc
+  (text))
+
+===
+non-ASCII case folds in a macro argument
+===
+{{jsxref("ſ K")}}
+---
+
+(doc
+  (macro_tag
+    (ident)
+    (args
+      (string
+        (double_quoted_string)))))
