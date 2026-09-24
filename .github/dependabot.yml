@@ -4,14 +4,11 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 3
     groups:
-      cargo-prod:
-        dependency-type: production
-        update-types:
-          - minor
-          - patch
-      cargo-dev:
-        dependency-type: development
+      cargo:
         update-types:
           - minor
           - patch
@@ -23,6 +20,9 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 3
     commit-message:
       prefix: ci
       include: scope
@@ -31,6 +31,9 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 10
+    cooldown:
+      default-days: 3
     groups:
       npm-prod:
         dependency-type: production
