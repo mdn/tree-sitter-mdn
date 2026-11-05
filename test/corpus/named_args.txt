@@ -1,0 +1,121 @@
+===
+named arg only
+===
+{{foo(anchor="syntax")}}
+---
+
+(doc
+  (macro_tag
+    (ident)
+    (args
+      (named_arg
+        name: (ident)
+        value: (string
+          (double_quoted_string))))))
+
+===
+positional and named args
+===
+{{foo("color", anchor='syntax', n=1, x=1.5, flag=true)}}
+---
+
+(doc
+  (macro_tag
+    (ident)
+    (args
+      (string
+        (double_quoted_string))
+      (named_arg
+        name: (ident)
+        value: (string
+          (single_quoted_string)))
+      (named_arg
+        name: (ident)
+        value: (int))
+      (named_arg
+        name: (ident)
+        value: (float))
+      (named_arg
+        name: (ident)
+        value: (boolean)))))
+
+===
+named arg with spaces around equals sign
+===
+{{foo(anchor = "syntax")}}
+---
+
+(doc
+  (macro_tag
+    (ident)
+    (args
+      (named_arg
+        name: (ident)
+        value: (string
+          (double_quoted_string))))))
+
+===
+named arg with empty string
+===
+{{foo(display="", anchor='')}}
+---
+
+(doc
+  (macro_tag
+    (ident)
+    (args
+      (named_arg
+        name: (ident)
+        value: (none))
+      (named_arg
+        name: (ident)
+        value: (none)))))
+
+===
+omitted positional arg before named arg
+===
+{{foo("a",, anchor="b")}}
+---
+
+(doc
+  (macro_tag
+    (ident)
+    (args
+      (string
+        (double_quoted_string))
+      (none)
+      (named_arg
+        name: (ident)
+        value: (string
+          (double_quoted_string))))))
+
+===
+positional arg after named arg
+===
+{{foo(anchor="b", "a")}}
+---
+
+(doc
+  (macro_tag
+    (ident)
+    (args
+      (named_arg
+        name: (ident)
+        value: (string
+          (double_quoted_string)))
+      (string
+        (double_quoted_string)))))
+
+===
+named arg without value
+===
+{{foo(anchor=)}}
+---
+
+(doc
+  (macro_tag
+    (ident)
+    (args
+      (named_arg
+        name: (ident)
+        value: (MISSING none)))))
