@@ -40,7 +40,13 @@ module.exports = grammar({
           ),
         ),
       ),
-    _arg: ($) =>
+    _arg: ($) => choice($._value, $.named_arg),
+
+    // Ordering and duplicate names are validated by consumers, not the grammar.
+    named_arg: ($) =>
+      seq(field('name', $.ident), '=', field('value', $._value)),
+
+    _value: ($) =>
       choice(
         alias(choice('""', '\'\''), $.none),
         $.string,
