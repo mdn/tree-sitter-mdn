@@ -4,7 +4,6 @@ on:
   push:
     branches: [main]
   pull_request:
-  workflow_dispatch:
 
 concurrency:
   group: ${{github.workflow}}-${{github.ref}}
@@ -82,6 +81,50 @@ jobs:
 
       - name: Run fuzzer
         uses: tree-sitter/fuzz-action@6a1dcff00aefd038ba418bd63732a9add4901266 # v4
+
+  diff-package:
+    name: Diff package
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      # Release PRs only bump versions, so compare them against the published crate instead.
+      - name: Determine base ref
+        id: base
+        run: |
+          if [[ "$GITHUB_HEAD_REF" == release-please--* ]]; then
+            version=$(curl -fsS https://index.crates.io/tr/ee/tree-sitter-mdn | jq -ers 'map(select(.yanked | not)) | last | .vers')
+            echo "ref=v$version" >> "$GITHUB_OUTPUT"
+            echo "Comparing release branch against published v$version"
+          else
+            echo "ref=$GITHUB_BASE_REF" >> "$GITHUB_OUTPUT"
+            echo "Comparing against base branch: $GITHUB_BASE_REF"
+          fi
+
+      - name: Checkout (base)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ steps.base.outputs.ref }}
+          path: base
+          persist-credentials: false
+
+      - name: Checkout (PR)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: pr
+          persist-credentials: false
+
+      - name: Package
+        run: |
+          for side in base pr; do
+            (cd "$side" && cargo package --no-verify --quiet)
+            mkdir "$side-crate"
+            tar -xzf "$side"/target/package/*.crate -C "$side-crate" --strip-components=1
+            # Not consumer-facing: VCS metadata, the raw manifest, and the lockfile (ignored by dependents).
+            rm "$side-crate"/{.cargo_vcs_info.json,Cargo.toml.orig,Cargo.lock}
+          done
+
+      - name: Diff
+        run: git diff --color=always --no-index --stat --patch base-crate/ pr-crate/ || true
 
   lint:
     name: Lint
