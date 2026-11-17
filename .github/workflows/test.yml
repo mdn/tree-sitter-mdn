@@ -65,7 +65,7 @@ jobs:
           #test-swift: true
 
       - name: Parse examples
-        uses: tree-sitter/parse-action@f44ffa94f802024f27e821a72e6f2f3efc5dd521 # v4
+        uses: tree-sitter/parse-action@47beaa8ba0b5c8b44ef0879b2f647ca7f0a1257d # v5
         with:
           files: examples/mdn/*/files/**/*.md
 
