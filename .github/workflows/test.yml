@@ -122,7 +122,25 @@ jobs:
           done
 
       - name: Diff
-        run: git diff --color=always --no-index --stat --patch base-crate/ pr-crate/ || [ $? -eq 1 ]
+        run: |
+          git diff --color=always --no-index --stat --patch base-crate/ pr-crate/ || [ $? -eq 1 ]
+          git diff --no-index --stat --patch base-crate/ pr-crate/ > package.diff || [ $? -eq 1 ]
+          # Step summaries are capped at 1 MiB, which a regenerated `parser.c` can exceed.
+          if [ "$(wc -c < package.diff)" -gt 1000000 ]; then
+            git diff --no-index --stat base-crate/ pr-crate/ > package.diff || [ $? -eq 1 ]
+            note="Patch too large for the summary, see the job log."
+          fi
+          {
+            echo "## Package diff"
+            if [ -s package.diff ]; then
+              echo "${note:-}"
+              echo '~~~~diff'
+              cat package.diff
+              echo '~~~~'
+            else
+              echo "No changes."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
   lint:
     name: Lint
