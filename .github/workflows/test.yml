@@ -55,7 +55,7 @@ jobs:
           git clone https://github.com/mdn/translated-content examples/translated-content --single-branch --depth=1 --filter=blob:none
 
       - name: Run tests
-        uses: tree-sitter/parser-test-action@8e31a1fc364f0669ab091a3829ac961cce58033a # v3
+        uses: tree-sitter/parser-test-action@92e35c06b51ea26c80ffbd3cc8d9286d9110df17 # v3
         with:
           generate: false
           test-rust: true
