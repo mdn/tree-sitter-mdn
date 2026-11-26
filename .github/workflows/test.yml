@@ -83,6 +83,65 @@ jobs:
       - name: Run fuzzer
         uses: tree-sitter/fuzz-action@6a1dcff00aefd038ba418bd63732a9add4901266 # v4
 
+  diff-package:
+    name: Diff package
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (base)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.base_ref }}
+          path: base
+          persist-credentials: false
+
+      # Release PRs only bump versions, so compare them against the last release instead.
+      - name: Checkout last release
+        if: startsWith(github.head_ref, 'release-please--')
+        working-directory: base
+        run: |
+          version=$(jq -er '."."' .github/release-please-manifest.json)
+          git fetch --quiet --depth=1 origin tag "v$version"
+          git checkout --quiet --detach "v$version"
+          echo "Comparing release branch against v$version"
+
+      - name: Checkout (PR)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: pr
+          persist-credentials: false
+
+      - name: Package
+        run: |
+          for side in base pr; do
+            (cd "$side" && cargo package --no-verify --quiet)
+            mkdir "$side-crate"
+            tar -xzf "$side"/target/package/*.crate -C "$side-crate" --strip-components=1
+            # Not consumer-facing: VCS metadata, the raw manifest, and the lockfile (ignored by dependents).
+            rm "$side-crate"/{.cargo_vcs_info.json,Cargo.toml.orig,Cargo.lock}
+          done
+
+      - name: Diff
+        run: |
+          git diff --color=always --no-index --stat --patch base-crate/ pr-crate/ || [ $? -eq 1 ]
+          git diff --no-index --stat --patch base-crate/ pr-crate/ > package.diff || [ $? -eq 1 ]
+          # Step summaries are capped at 1 MiB, which a regenerated `parser.c` can exceed.
+          if [ "$(wc -c < package.diff)" -gt 1000000 ]; then
+            git diff --no-index --stat base-crate/ pr-crate/ > package.diff || [ $? -eq 1 ]
+            note="Patch too large for the summary, see the job log."
+          fi
+          {
+            echo "## Package diff"
+            if [ -s package.diff ]; then
+              echo "${note:-}"
+              echo '~~~~diff'
+              cat package.diff
+              echo '~~~~'
+            else
+              echo "No changes."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
   lint:
     name: Lint
     runs-on: ubuntu-latest
